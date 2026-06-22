@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { PORTFOLIO_ITEMS } from "../data";
 import { PortfolioItem } from "../types";
 import { compressImage } from "../utils";
+import EditableElement from "./EditableElement";
 import { 
   Camera, 
   Upload, 
@@ -31,8 +32,12 @@ import {
   MousePointerClick
 } from "lucide-react";
 
-export default function Portfolio() {
-  const [isAdmin] = useState<boolean>(() => {
+interface PortfolioProps {
+  isAdmin?: boolean;
+}
+
+export default function Portfolio({ isAdmin: propIsAdmin }: PortfolioProps = {}) {
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const adminParam = params.get("admin");
@@ -43,6 +48,12 @@ export default function Portfolio() {
     }
     return false;
   });
+
+  useEffect(() => {
+    if (propIsAdmin !== undefined) {
+      setIsAdmin(propIsAdmin);
+    }
+  }, [propIsAdmin]);
 
   const [selectedCategory, setSelectedCategory] = useState<"AI Product Images" | "Product Listings" | "Website Projects">("AI Product Images");
   const [itemsList, setItemsList] = useState<PortfolioItem[]>(PORTFOLIO_ITEMS);
@@ -211,6 +222,34 @@ export default function Portfolio() {
     triggerToast("Project deleted successfully!");
   };
 
+  const handleItemTitleChange = (itemId: string, newTitle: string) => {
+    const updated = itemsList.map(item => {
+      if (item.id === itemId) {
+        return { ...item, title: newTitle };
+      }
+      return item;
+    });
+    // Silent list update during onInput typing
+    setItemsList(updated);
+    try {
+      localStorage.setItem("my_vibrant_dynamic_portfolio_v2", JSON.stringify(updated));
+    } catch(e) {}
+  };
+
+  const handleItemDescChange = (itemId: string, newDesc: string) => {
+    const updated = itemsList.map(item => {
+      if (item.id === itemId) {
+        return { ...item, description: newDesc };
+      }
+      return item;
+    });
+    // Silent list update during onInput typing
+    setItemsList(updated);
+    try {
+      localStorage.setItem("my_vibrant_dynamic_portfolio_v2", JSON.stringify(updated));
+    } catch(e) {}
+  };
+
   // Restore raw presets
   const handleRestorePresets = () => {
     setItemsList(PORTFOLIO_ITEMS);
@@ -330,10 +369,18 @@ export default function Portfolio() {
               Creative Showcase Portfolio
             </motion.div>
             <h2 className="font-display font-black text-4xl sm:text-6xl text-slate-900 tracking-tight leading-none uppercase">
-              Selected Works
+              <EditableElement
+                as="span"
+                storageKey="portfolio-heading"
+                defaultText="Selected Works"
+              />
             </h2>
             <p className="mt-4 font-sans text-base sm:text-lg text-slate-700 font-semibold">
-              Explore high-converting product listings, immersive before & after sliders, and premium responsive design showcases crafted to maximize sales conversions.
+              <EditableElement
+                as="span"
+                storageKey="portfolio-intro"
+                defaultText="Explore high-converting product listings, immersive before & after sliders, and premium responsive design showcases crafted to maximize sales conversions."
+              />
             </p>
           </div>
         </div>
@@ -478,10 +525,24 @@ export default function Portfolio() {
                           {/* TEXT METADATA BLOCK FOR CARD DECK */}
                           <div className="p-6 text-left flex flex-col justify-between flex-grow">
                             <div>
-                              <h3 className="font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight leading-snug">
+                              <h3 
+                                className={`font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight leading-snug ${isAdmin ? "outline-2 outline-dashed outline-pink-500/80 outline-offset-2 hover:bg-pink-500/5 cursor-text" : ""}`}
+                                contentEditable={isAdmin}
+                                suppressContentEditableWarning={true}
+                                onBlur={(e) => {
+                                  handleItemTitleChange(item.id, e.currentTarget.innerText || "");
+                                }}
+                              >
                                 {item.title || "Untitled Project"}
                               </h3>
-                              <p className="mt-3 font-sans text-xs sm:text-sm font-semibold leading-relaxed text-slate-600">
+                              <p 
+                                className={`mt-3 font-sans text-xs sm:text-sm font-semibold leading-relaxed text-slate-600 ${isAdmin ? "outline-2 outline-dashed outline-pink-500/80 outline-offset-2 hover:bg-pink-500/5 cursor-text" : ""}`}
+                                contentEditable={isAdmin}
+                                suppressContentEditableWarning={true}
+                                onBlur={(e) => {
+                                  handleItemDescChange(item.id, e.currentTarget.innerText || "");
+                                }}
+                              >
                                 {item.description || "Replace this text with your custom description outlining the production process and strategy details."}
                               </p>
 
@@ -491,7 +552,22 @@ export default function Portfolio() {
                                   {(item.bulletPoints || []).map((bullet, idx) => (
                                     <li key={idx} className="flex items-start gap-2 text-[11px] font-bold text-slate-700 leading-relaxed">
                                       <span className="text-emerald-500 text-sm leading-none flex-shrink-0">✓</span>
-                                      <span>{bullet}</span>
+                                      <span
+                                        className={isAdmin ? "outline-1 outline-dashed outline-pink-500/50 cursor-text px-1" : ""}
+                                        contentEditable={isAdmin}
+                                        suppressContentEditableWarning={true}
+                                        onBlur={(e) => {
+                                          const updatedBullets = [...(item.bulletPoints || [])];
+                                          updatedBullets[idx] = e.currentTarget.innerText || "";
+                                          const updated = itemsList.map(it => {
+                                            if (it.id === item.id) return { ...it, bulletPoints: updatedBullets };
+                                            return it;
+                                          });
+                                          saveList(updated);
+                                        }}
+                                      >
+                                        {bullet}
+                                      </span>
                                     </li>
                                   ))}
                                 </ul>
@@ -507,7 +583,22 @@ export default function Portfolio() {
                                     {(item.keywords || []).map((kw, idx) => (
                                       <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border border-black bg-slate-50 text-slate-800 text-[9px] font-mono font-extrabold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                                         <Tag className="w-2.5 h-2.5 text-[#FF6B6B]" />
-                                        {kw}
+                                        <span
+                                          className={isAdmin ? "outline-1 outline-dashed outline-pink-500/50 cursor-text px-1" : ""}
+                                          contentEditable={isAdmin}
+                                          suppressContentEditableWarning={true}
+                                          onBlur={(e) => {
+                                            const updatedKws = [...(item.keywords || [])];
+                                            updatedKws[idx] = e.currentTarget.innerText || "";
+                                            const updated = itemsList.map(it => {
+                                              if (it.id === item.id) return { ...it, keywords: updatedKws };
+                                              return it;
+                                            });
+                                            saveList(updated);
+                                          }}
+                                        >
+                                          {kw}
+                                        </span>
                                       </span>
                                     ))}
                                   </div>

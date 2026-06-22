@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { TESTIMONIALS_DATA } from "../data";
 import { Star, ChevronLeft, ChevronRight, Quote, ShoppingBag } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,13 +51,25 @@ export default function Testimonials() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest text-slate-900 bg-[#FF8FAB]/30 border-2 border-black uppercase mb-4 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Approved Energy
+            <EditableElement
+              as="span"
+              storageKey="testimonials-badge"
+              defaultText="Approved Energy"
+            />
           </span>
           <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none uppercase">
-            Loved By Active Brands
+            <EditableElement
+              as="span"
+              storageKey="testimonials-heading"
+              defaultText="Loved By Active Brands"
+            />
           </h2>
           <p className="mt-4 font-sans text-base text-slate-700 font-semibold max-w-2xl mx-auto">
-            See how merchants & brand directors leverage AURONIX's smart aesthetics to double hook-rates and lift click-through conversion.
+            <EditableElement
+              as="span"
+              storageKey="testimonials-intro"
+              defaultText="See how merchants & brand directors leverage AURONIX's smart aesthetics to double hook-rates and lift click-through conversion."
+            />
           </p>
         </motion.div>
 
@@ -97,17 +110,35 @@ export default function Testimonials() {
 
                   {/* Testimonial Quote */}
                   <p className="font-sans text-sm sm:text-base text-slate-800 leading-relaxed font-bold italic">
-                    "{TESTIMONIALS_DATA[currentIndex].text}"
+                    "<EditableElement
+                      as="span"
+                      storageKey={`testimonial-text-${TESTIMONIALS_DATA[currentIndex].id}`}
+                      defaultText={TESTIMONIALS_DATA[currentIndex].text}
+                    />"
                   </p>
 
                   {/* Testimonial Signoff Card line */}
                   <div className="pt-4 border-t-2 border-dashed border-slate-300 flex flex-wrap items-center justify-between gap-3">
                     <div>
                       <h4 className="font-display font-black text-slate-900 text-sm">
-                        {TESTIMONIALS_DATA[currentIndex].name}
+                        <EditableElement
+                          as="span"
+                          storageKey={`testimonial-name-${TESTIMONIALS_DATA[currentIndex].id}`}
+                          defaultText={TESTIMONIALS_DATA[currentIndex].name}
+                        />
                       </h4>
                       <p className="font-sans text-xs text-slate-600 font-bold mt-0.5">
-                        {TESTIMONIALS_DATA[currentIndex].role}, <span className="text-[#8338EC]">{TESTIMONIALS_DATA[currentIndex].company}</span>
+                        <EditableElement
+                          as="span"
+                          storageKey={`testimonial-role-${TESTIMONIALS_DATA[currentIndex].id}`}
+                          defaultText={TESTIMONIALS_DATA[currentIndex].role}
+                        />, <span className="text-[#8338EC]">
+                          <EditableElement
+                            as="span"
+                            storageKey={`testimonial-company-${TESTIMONIALS_DATA[currentIndex].id}`}
+                            defaultText={TESTIMONIALS_DATA[currentIndex].company}
+                          />
+                        </span>
                       </p>
                     </div>
 

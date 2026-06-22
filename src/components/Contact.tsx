@@ -19,6 +19,7 @@ import {
   Send,
   Sparkle
 } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -125,13 +126,25 @@ export default function Contact() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <span className="px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest text-[#FF6B6B] bg-[#FF6B6B]/10 border-2 border-black uppercase mb-4 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Connect With AURONIX
+            <EditableElement
+              as="span"
+              storageKey="contact-badge"
+              defaultText="Connect With AURONIX"
+            />
           </span>
           <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none uppercase">
-            Let's Make Something Sick
+            <EditableElement
+              as="span"
+              storageKey="contact-heading"
+              defaultText="Let's Make Something Sick"
+            />
           </h2>
           <p className="mt-4 font-sans text-slate-700 font-semibold text-base sm:text-lg">
-            No rigid corporate packages. Tell us what your brand needs, and Ubaid Khan will personally build a custom layout strategy.
+            <EditableElement
+              as="span"
+              storageKey="contact-intro"
+              defaultText="No rigid corporate packages. Tell us what your brand needs, and Ubaid Khan will personally build a custom layout strategy."
+            />
           </p>
         </motion.div>
 
@@ -148,13 +161,26 @@ export default function Contact() {
           >
             <div className="space-y-4">
               <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#06D6A0]/10 border-2 border-black text-xs font-mono font-bold text-[#06D6A0] uppercase shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
-                <Sparkle className="w-3.5 h-3.5" /> High-Performance Guarantee
+                <Sparkle className="w-3.5 h-3.5" />
+                <EditableElement
+                  as="span"
+                  storageKey="contact-subbadge"
+                  defaultText="High-Performance Guarantee"
+                />
               </span>
               <h3 className="font-display font-black text-2xl sm:text-3xl text-slate-900 uppercase">
-                Work Directly with Ubaid Khan
+                <EditableElement
+                  as="span"
+                  storageKey="contact-subheading"
+                  defaultText="Work Directly with Ubaid Khan"
+                />
               </h3>
               <p className="font-sans text-sm sm:text-base text-slate-750 font-semibold leading-relaxed">
-                Whether you sell on Amazon, manage high-volume Shopify stores, or require state-of-the-art AI-powered product backdrops, we deliver compliant, high-end content layout designs fast.
+                <EditableElement
+                  as="span"
+                  storageKey="contact-subintro"
+                  defaultText="Whether you sell on Amazon, manage high-volume Shopify stores, or require state-of-the-art AI-powered product backdrops, we deliver compliant, high-end content layout designs fast."
+                />
               </p>
             </div>
 

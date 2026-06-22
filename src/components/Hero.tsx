@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Eye, Star, Image, Video, ShoppingBag, Globe, Rocket, HelpCircle } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 export default function Hero() {
   const handleScrollTo = (id: string) => {
@@ -42,7 +43,11 @@ export default function Hero() {
           onClick={() => handleScrollTo("#process")}
         >
           <Sparkles className="w-4 h-4 text-slate-900 animate-spin-slow shrink-0" />
-          <span>YOUR PRODUCTS DESERVE BETTER</span>
+          <EditableElement
+            as="span"
+            storageKey="hero-badge-text"
+            defaultText="YOUR PRODUCTS DESERVE BETTER"
+          />
         </motion.div>
 
         {/* Massive Headline (Gen-Z Duolingo/Spotify Wrapped Look: Giant, Bold, Colorful) */}
@@ -53,16 +58,27 @@ export default function Hero() {
           className="max-w-5xl"
         >
           <h1 
-            className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-900 tracking-tighter leading-[0.87]"
+            className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-900 tracking-tighter leading-[0.87] flex flex-col items-center gap-2"
             id="hero-headline"
           >
-            Your Products <br />
+            <EditableElement
+              as="span"
+              storageKey="hero-part1-text"
+              defaultText="Your Products"
+            />
             <span className="text-white px-4 py-2 my-2 inline-block bg-gradient-to-r from-[#8338EC] via-[#FF6B6B] to-[#FFD93D] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] uppercase -rotate-1 hover:rotate-1 transition-transform">
-              Deserve
+              <EditableElement
+                as="span"
+                storageKey="hero-part2-text"
+                defaultText="Deserve"
+              />
             </span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] via-[#8338EC] to-[#00C2FF] animate-pulse inline-block leading-tight">
-              Better.
-            </span>
+            <EditableElement
+              as="span"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] via-[#8338EC] to-[#00C2FF] animate-pulse inline-block leading-tight"
+              storageKey="hero-part3-text"
+              defaultText="Better."
+            />
           </h1>
         </motion.div>
 
@@ -73,7 +89,11 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-8 font-sans text-base sm:text-xl text-slate-700 max-w-2xl font-semibold leading-relaxed"
         >
-          We construct thumb-stopping graphics & smart AI-powered transformations that double conversions. No boring SaaS templates, only raw creative energy.
+          <EditableElement
+            as="span"
+            storageKey="hero-subtitle-text"
+            defaultText="We construct thumb-stopping graphics & smart AI-powered transformations that double conversions. No boring SaaS templates, only raw creative energy."
+          />
         </motion.p>
 
         {/* Glowing CTA Buttons section */}
@@ -90,7 +110,11 @@ export default function Hero() {
             id="hero-samples-btn"
           >
             <Eye className="w-4 h-4 text-[#8338EC]" />
-            View Portfolio Grid
+            <EditableElement
+              as="span"
+              storageKey="hero-btn1-text"
+              defaultText="View Portfolio Grid"
+            />
           </button>
           
           <button
@@ -98,7 +122,11 @@ export default function Hero() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#FF6B6B] text-white border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:bg-[#FF6B6B]/95 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all cursor-pointer"
             id="hero-contact-btn"
           >
-            Let's Collaborate
+            <EditableElement
+              as="span"
+              storageKey="hero-btn2-text"
+              defaultText="Let's Collaborate"
+            />
             <ArrowRight className="w-4 h-4 text-white" />
           </button>
         </motion.div>
@@ -113,15 +141,27 @@ export default function Hero() {
         >
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6BCB77]/20 border-2 border-black text-slate-900">
             <Star className="w-3.5 h-3.5 text-[#FFB703] fill-[#FFB703]" />
-            100% Platform Compliant
+            <EditableElement
+              as="span"
+              storageKey="hero-trust1"
+              defaultText="100% Platform Compliant"
+            />
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00C2FF]/20 border-2 border-black text-slate-900">
             <Sparkles className="w-3.5 h-3.5 text-[#8338EC]" />
-            Supercharged AI Pipelines
+            <EditableElement
+              as="span"
+              storageKey="hero-trust2"
+              defaultText="Supercharged AI Pipelines"
+            />
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF8FAB]/30 border-2 border-black text-slate-900">
             <Rocket className="w-3.5 h-3.5 text-[#FF6B6B]" />
-            Conversion Multiplied
+            <EditableElement
+              as="span"
+              storageKey="hero-trust3"
+              defaultText="Conversion Multiplied"
+            />
           </span>
         </motion.div>
       </div>

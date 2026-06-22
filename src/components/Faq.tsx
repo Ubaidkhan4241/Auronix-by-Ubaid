@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FAQS_DATA } from "../data";
 import { Plus, Minus, HelpCircle } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 export default function FAQ() {
   const [expandedId, setExpandedId] = useState<string | null>("faq-1");
@@ -23,13 +24,25 @@ export default function FAQ() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest text-[#FF6B6B] bg-[#FF6B6B]/10 border-2 border-black uppercase mb-4 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Got Questions?
+            <EditableElement
+              as="span"
+              storageKey="faq-badge"
+              defaultText="Got Questions?"
+            />
           </span>
           <h2 className="font-display font-black text-4xl sm:text-5xl text-slate-900 tracking-tight uppercase">
-            Frequently Asked Questions
+            <EditableElement
+              as="span"
+              storageKey="faq-heading"
+              defaultText="Frequently Asked Questions"
+            />
           </h2>
           <p className="mt-4 font-sans text-base text-slate-700 font-semibold">
-            Everything you need to know about our high-impact creative imagery, dynamic comparative grids, and fast delivery structures.
+            <EditableElement
+              as="span"
+              storageKey="faq-intro"
+              defaultText="Everything you need to know about our high-impact creative imagery, dynamic comparative grids, and fast delivery structures."
+            />
           </p>
         </motion.div>
 
@@ -59,7 +72,11 @@ export default function FAQ() {
                   <div className="flex items-start gap-4">
                     <HelpCircle className="w-5 h-5 text-[#8338EC] shrink-0 mt-0.5" />
                     <span className="font-display font-black text-slate-900 text-sm sm:text-base hover:text-[#8338EC] transition-colors leading-tight">
-                      {faq.question}
+                      <EditableElement
+                        as="span"
+                        storageKey={`faq-question-${faq.id}`}
+                        defaultText={faq.question}
+                      />
                     </span>
                   </div>
                   
@@ -84,7 +101,11 @@ export default function FAQ() {
                     >
                       <div className="px-6 pb-6 pt-2 border-t-2 border-dashed border-slate-200 pl-14">
                         <p className="font-sans text-xs sm:text-sm text-slate-650 leading-relaxed font-bold">
-                          {faq.answer}
+                          <EditableElement
+                            as="span"
+                            storageKey={`faq-answer-${faq.id}`}
+                            defaultText={faq.answer}
+                          />
                         </p>
                         
                         <div className="mt-4 flex items-center gap-1.5 text-[9px] font-mono text-slate-500 uppercase tracking-wider">

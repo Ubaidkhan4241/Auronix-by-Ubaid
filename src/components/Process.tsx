@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PROCESS_STEPS } from "../data";
 import { ArrowRight, CheckCircle, Clock } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 export default function Process() {
   const [activeStep, setActiveStep] = useState<number>(1);
@@ -19,13 +20,25 @@ export default function Process() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <span className="px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest text-slate-900 bg-[#06D6A0]/30 border-2 border-black uppercase mb-4 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            How we roll
+            <EditableElement
+              as="span"
+              storageKey="process-badge"
+              defaultText="How we roll"
+            />
           </span>
-          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none uppercase">
-            The AURONIX Process
+          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none uppercase font-display select-none">
+            <EditableElement
+              as="span"
+              storageKey="process-heading"
+              defaultText="The AURONIX Process"
+            />
           </h2>
           <p className="mt-4 font-sans text-slate-700 font-semibold text-base sm:text-lg">
-            From raw spreadsheet catalogs or amateur smartphone files to custom, high-converting retail assets. A transparent, fast timeline built to optimize metrics and catalog listings.
+            <EditableElement
+              as="span"
+              storageKey="process-intro"
+              defaultText="From raw spreadsheet catalogs or amateur smartphone files to custom, high-converting retail assets. A transparent, fast timeline built to optimize metrics and catalog listings."
+            />
           </p>
         </motion.div>
 
@@ -98,15 +111,28 @@ export default function Process() {
                         Stage {step.stepNumber}
                       </span>
                       <span className="text-[10px] font-mono font-black text-slate-950 bg-[#06D6A0]/20 px-3.5 py-1 rounded-full border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-slate-900" /> {step.duration}
+                        <Clock className="w-3.5 h-3.5 text-slate-900" />
+                        <EditableElement
+                          as="span"
+                          storageKey={`process-step-duration-${step.stepNumber}`}
+                          defaultText={step.duration}
+                        />
                       </span>
                     </div>
 
                     <h3 className="font-display font-black text-2.5xl text-slate-950 mt-5 tracking-tight uppercase">
-                      {step.title}
+                      <EditableElement
+                        as="span"
+                        storageKey={`process-step-title-${step.stepNumber}`}
+                        defaultText={step.title}
+                      />
                     </h3>
                     <p className="font-sans text-sm text-slate-700 mt-4 leading-relaxed font-bold">
-                      {step.description}
+                      <EditableElement
+                        as="span"
+                        storageKey={`process-step-description-${step.stepNumber}`}
+                        defaultText={step.description}
+                      />
                     </p>
 
                     {/* Step navigation trigger links for mobile */}
@@ -132,7 +158,13 @@ export default function Process() {
                       {step.detailedPoints.map((pt, index) => (
                         <li key={index} className="flex items-start gap-2.5 text-xs text-slate-800 font-bold">
                           <CheckCircle className="w-4 h-4 text-[#8338EC] shrink-0 mt-0.5" />
-                          <span>{pt}</span>
+                          <span>
+                            <EditableElement
+                              as="span"
+                              storageKey={`process-step-point-${step.stepNumber}-${index}`}
+                              defaultText={pt}
+                            />
+                          </span>
                         </li>
                       ))}
                     </ul>

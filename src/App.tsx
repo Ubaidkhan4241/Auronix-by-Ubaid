@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import AdminPanel from "./components/AdminPanel";
+import FloatingSaveButton from "./components/FloatingSaveButton";
 import Portfolio from "./components/Portfolio";
 import Process from "./components/Process";
 import WhyChooseMe from "./components/WhyChooseMe";
@@ -15,7 +16,7 @@ export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(true);
 
-  const [isAdmin] = useState<boolean>(() => {
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const adminParam = params.get("admin");
@@ -46,9 +47,15 @@ export default function App() {
       window.addEventListener("mousemove", handleMouseMove);
     }
 
+    const handleAccessUpdate = () => {
+      setIsAdmin(localStorage.getItem("ubaid_admin_authenticated") === "true");
+    };
+    window.addEventListener("ubaid-access-mode-updated", handleAccessUpdate);
+
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("ubaid-access-mode-updated", handleAccessUpdate);
     };
   }, []);
 
@@ -116,14 +123,14 @@ export default function App() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none z-0" />
 
       {/* Global Navigation Header overlay */}
-      <Header />
+      <Header isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
 
       {/* Structured Single-Page sections */}
       <main className="relative z-10">
         <Hero />
         <Services />
         {isAdmin && <AdminPanel />}
-        <Portfolio />
+        <Portfolio isAdmin={isAdmin} />
         <Process />
         <WhyChooseMe />
         <Testimonials />
@@ -133,6 +140,8 @@ export default function App() {
 
       {/* Global conversion footer */}
       <Footer />
+
+      {isAdmin && <FloatingSaveButton />}
     </div>
   );
 }

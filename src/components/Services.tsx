@@ -18,6 +18,7 @@ import {
   ArrowRight,
   PhoneCall
 } from "lucide-react";
+import EditableElement from "./EditableElement";
 
 // Lucide mapping lookup to stay light and typesafe
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -84,13 +85,25 @@ export default function Services() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <span className="px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest text-[#8338EC] bg-[#8338EC]/10 border-2 border-black uppercase mb-4 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            High-Ticket Solutions
+            <EditableElement
+              as="span"
+              storageKey="services-badge"
+              defaultText="High-Ticket Solutions"
+            />
           </span>
           <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none">
-            Our Elite Services
+            <EditableElement
+              as="span"
+              storageKey="services-heading"
+              defaultText="Our Elite Services"
+            />
           </h2>
           <p className="mt-4 font-sans text-slate-700 font-semibold text-base sm:text-lg">
-            Slashing production costs, building beautiful visuals, and optimizing listing assets. We help brands launch bulletproof catalogs that command premium conversion.
+            <EditableElement
+              as="span"
+              storageKey="services-intro"
+              defaultText="Slashing production costs, building beautiful visuals, and optimizing listing assets. We help brands launch bulletproof catalogs that command premium conversion."
+            />
           </p>
         </motion.div>
 
@@ -139,7 +152,11 @@ export default function Services() {
                   {/* Title & Badge */}
                   <div className="flex flex-col gap-y-2 mb-3">
                     <h3 className="font-display font-black text-xl text-slate-905">
-                      {service.title}
+                      <EditableElement
+                        as="span"
+                        storageKey={`service-title-${service.id}`}
+                        defaultText={service.title}
+                      />
                     </h3>
                     <div>
                       <span className={`inline-block px-3 py-1 rounded-full text-[8px] font-bold font-mono tracking-widest uppercase border-2 border-black ${accent.badge}`}>
@@ -148,7 +165,11 @@ export default function Services() {
                     </div>
                   </div>
                   <p className="mt-2 font-sans text-xs sm:text-sm text-slate-700 leading-relaxed font-semibold">
-                    {service.description}
+                    <EditableElement
+                      as="span"
+                      storageKey={`service-desc-${service.id}`}
+                      defaultText={service.description}
+                    />
                   </p>
 
                   {/* Deliverables checklist */}
@@ -160,7 +181,13 @@ export default function Services() {
                       {service.deliverables.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-800 font-semibold">
                           <Check className="w-4 h-4 text-[#FF6B6B] shrink-0 mt-0.5" />
-                          <span>{item}</span>
+                          <span>
+                            <EditableElement
+                              as="span"
+                              storageKey={`service-deliverable-${service.id}-${idx}`}
+                              defaultText={item}
+                            />
+                          </span>
                         </li>
                       ))}
                     </ul>
