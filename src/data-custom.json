@@ -1,0 +1,88 @@
+[
+  {
+    "id": "img-1",
+    "title": "Premium Matte Black Insulated Thermos",
+    "category": "AI Product Images",
+    "description": "Replaced a cluttered workbench surface background with a high-end, sun-drenched granite block surrounded by natural pine branches and volumetric water mist to create a premium outdoor feel.",
+    "beforeImage": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=1100&auto=format&fit=crop&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=1100&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "img-2",
+    "title": "Eco-Friendly Organic Bamboo Tea Mug",
+    "category": "AI Product Images",
+    "description": "Lifted a smartphone kitchen snap into an elegant warm stone countertop environment decorated with loose raw green tea leaves and ambient morning window shadows.",
+    "beforeImage": "https://images.unsplash.com/photo-1514333861230-616199a5353d?w=1100&auto=format&fit=crop&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=1100&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "img-3",
+    "title": "Luxurious Quartz Gold Chronograph Watch",
+    "category": "AI Product Images",
+    "description": "Transformed a flat carpet background display of a chronograph watch into a reflective glossy obsidian platform under dramatic golden spotlight beams with rich metallic ambient flares.",
+    "beforeImage": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1100&auto=format&fit=crop&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=1100&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "img-4",
+    "title": "Organic Hibiscus Botanical Cosmetics Jar",
+    "category": "AI Product Images",
+    "description": "Retouched an unshaded retail store shelf photo, transplanting the moisturizing cosmetics jar into a serene minimal Zen wet sand setup framed by floating hibiscus petals and fresh dew ripples.",
+    "beforeImage": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=1100&auto=format&fit=crop&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=1100&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": "list-1",
+    "title": "AuraGlow French Lavender Essential Oil (15ml)",
+    "category": "Product Listings",
+    "description": "Premium natural wellness lavender therapeutic grade organic essential oil brand listing optimized for Amazon Seller system.",
+    "productImage": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=1100&auto=format&fit=crop&q=80",
+    "bulletPoints": [
+      "🌿 100% PURE FRENCH LAVENDER OIL: Premium cold-pressed lavender extracted from authentic fields in France",
+      "💤 DEEP CALMING & SLEEP THERAPY: Restores ambient peace to help you wind down and naturally enjoy restorative sleep",
+      "💜 ECO-FRIENDLY & DETOXIFYING: Completely free of synthetic compounds, fillers, parabens or chemical additives",
+      "🎁 DIFFUSER & MASSAGE READY: Packaged in an amber UV-ray shield bottle with glass dropper for convenient everyday use"
+    ],
+    "keywords": [
+      "Lavender Essential Oil",
+      "Therapeutic Grade Extracted",
+      "Pure Aromatherapy Diffuser",
+      "Stress Relief Sleep Aid"
+    ]
+  },
+  {
+    "id": "list-2",
+    "title": "Ergonomic Memory Foam Lumbar Support Cushion",
+    "category": "Product Listings",
+    "description": "High-density posture correcting desk chair cushion designed for chronic office back tension relief and high-ticket sales.",
+    "productImage": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=1100&auto=format&fit=crop&q=80",
+    "bulletPoints": [
+      "🪑 POSTURE CORRECTING CONTOUR: Scientifically designed wedge molds to your lower hips to align spinal curves perfectly",
+      "💨 COOLING BREATHABLE 3D MESH: Anti-sweat airflow circulation cover keeps your lower body relaxed all day",
+      "🚀 100% THERAPEUTIC MEMORY FOAM: Never flattens or loses decompression strength during extensive heavy seated hours",
+      "🔒 COMPATIBLE SECURITY STRAPS: Dual adjustable elastic buckles secure the cushion tightly to any home or office chair"
+    ],
+    "keywords": [
+      "Memory Foam Lumbar Support",
+      "Office Posture Cushion",
+      "Back Pain Relief Wedge",
+      "Desk Chair Posture Seat"
+    ]
+  },
+  {
+    "id": "web-1",
+    "title": "Veloce Luxury Watch Customizer Site",
+    "category": "Website Projects",
+    "description": "A high-performance luxury Shopify storefront with dynamic real-time color customizer, heavy typography, and smooth page transitions.",
+    "websiteScreenshot": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1100&auto=format&fit=crop&q=80",
+    "viewButtonLink": "https://example.com/watch-customizer"
+  },
+  {
+    "id": "web-2",
+    "title": "Gourmet Root Cafe Delivery Webapp",
+    "category": "Website Projects",
+    "description": "Next.js e-commerce app featuring a micro-animation grocery cart, fully localized pricing structures, and beautiful grid listings.",
+    "websiteScreenshot": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1100&auto=format&fit=crop&q=80",
+    "viewButtonLink": "https://example.com/gourmet-root"
+  }
+]

@@ -52,6 +52,46 @@ export default function App() {
     };
   }, []);
 
+  // Sync portfolio changes automatically to the backend server to make changes hardcoded in the repository
+  useEffect(() => {
+    const syncPortfolioData = async () => {
+      try {
+        const localDataStr = localStorage.getItem("my_vibrant_dynamic_portfolio_v2");
+        if (!localDataStr) return;
+        
+        let parsedData;
+        try {
+          parsedData = JSON.parse(localDataStr);
+        } catch (e) {
+          return;
+        }
+
+        if (Array.isArray(parsedData) && parsedData.length > 0) {
+          console.log("[AURONIX AUTO-SYNC] Synchronizing local browser portfolio customization...");
+          const res = await fetch("/api/save-portfolio", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: localDataStr,
+          });
+          const result = await res.json();
+          if (result && result.success) {
+            console.log(`[AURONIX AUTO-SYNC] Successfully hardcoded ${result.count} portfolio items to disk!`);
+          }
+        }
+      } catch (err) {
+        console.info("[AURONIX AUTO-SYNC] Backend offline (or static server), skipping persistent hardcode sync.");
+      }
+    };
+
+    syncPortfolioData();
+    window.addEventListener("ubaid-portfolio-updated", syncPortfolioData);
+    return () => {
+      window.removeEventListener("ubaid-portfolio-updated", syncPortfolioData);
+    };
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-vibrant-mesh text-slate-800 antialiased selection:bg-brand-yellow selection:text-slate-900 overflow-hidden font-sans">
       
