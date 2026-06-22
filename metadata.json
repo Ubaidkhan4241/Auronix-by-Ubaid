@@ -1,0 +1,6 @@
+{
+  "name": "AURONIX",
+  "description": "Premium E-Commerce SEO, Cataloging, and AI Product Scenery Design Studio by Ubaid Khan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
