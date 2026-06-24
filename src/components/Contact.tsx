@@ -26,18 +26,17 @@ export default function Contact() {
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
-  const [serviceRequired, setServiceRequired] = useState("Catalog Management");
+  const [serviceRequired, setServiceRequired] = useState("Increase Product Conversion Rate");
   const [projectDetails, setProjectDetails] = useState("");
   const [customServices, setCustomServices] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const servicesList = [
-    "Catalog Management",
-    "Bulk Product Uploads",
-    "Product Variations",
-    "AI Product Images",
-    "AI Product Videos",
-    "E-commerce Website Creation"
+    "Increase Product Conversion Rate",
+    "Improve CTR on Marketplaces",
+    "Boost SEO Ranking",
+    "Build Trust Through Visuals",
+    "Improve Catalog Structure"
   ];
 
   // Listener to auto-select service when clicked from the services card list
@@ -45,12 +44,11 @@ export default function Contact() {
     const handleServiceSelection = (e: Event) => {
       const serviceId = (e as CustomEvent).detail;
       const mapping: Record<string, string> = {
-        "catalog-management": "Catalog Management",
-        "bulk-uploads": "Bulk Product Uploads",
-        "product-variations": "Product Variations",
-        "ai-product-images": "AI Product Images",
-        "ai-product-videos": "AI Product Videos",
-        "ecommerce-web-creation": "E-commerce Website Creation"
+        "increase-conversion": "Increase Product Conversion Rate",
+        "improve-ctr": "Improve CTR on Marketplaces",
+        "boost-seo": "Boost SEO Ranking",
+        "build-trust": "Build Trust Through Visuals",
+        "improve-catalog-structure": "Improve Catalog Structure"
       };
       
       const matched = mapping[serviceId];
@@ -146,6 +144,43 @@ export default function Contact() {
               defaultText="No rigid corporate packages. Tell us what your brand needs, and Ubaid Khan will personally build a custom layout strategy."
             />
           </p>
+        </motion.div>
+
+        {/* High-Converting Free Sample Transformation Call-to-Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="mb-16 p-1 rounded-[2rem] bg-gradient-to-r from-[#8338EC] via-[#FF6B6B] to-[#FFD93D] text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <div className="bg-white rounded-[1.85rem] p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-left">
+            <div className="max-w-2xl">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest text-[#FF6B6B] bg-[#FF6B6B]/10 border-2 border-black uppercase mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                🔥 FREE RISK-FREE CONVERSION PROOF
+              </span>
+              <h3 className="font-display font-black text-2xl sm:text-4xl text-slate-900 leading-none uppercase">
+                NOT SURE IF YOUR PRODUCTS NEED IMPROVEMENT?
+              </h3>
+              <p className="mt-3 font-sans text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
+                Send one product image and get a <span className="text-[#8338EC]">free sample transformation</span>. We will isolate your raw product photo, construct a premium custom background, and show you exactly how to double your conversion rate for free.
+              </p>
+            </div>
+            <div className="shrink-0 w-full lg:w-auto text-center">
+              <a
+                href="https://wa.me/917310835942?text=Hi%20Ubaid!%20I'm%20sending%20a%20product%20image.%20I'd%20love%20to%20get%20a%20free%20sample%20transformation%20from%20AURONIX!"
+                target="_blank"
+                referrerPolicy="no-referrer"
+                className="w-full lg:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-5 rounded-2xl text-sm font-black uppercase tracking-wider bg-[#25D366] hover:bg-[#25D366]/90 text-slate-950 border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all text-center cursor-pointer"
+              >
+                <MessageSquare className="w-5 h-5 fill-slate-950" />
+                WhatsApp Us
+              </a>
+              <p className="text-[10px] text-slate-500 font-mono text-center mt-2 font-bold uppercase tracking-wider">
+                Send 1 image • No obligation
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

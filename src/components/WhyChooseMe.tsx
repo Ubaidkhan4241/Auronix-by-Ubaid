@@ -6,48 +6,59 @@ export default function WhyChooseMe() {
   
   const pillars = [
     {
+      id: "conversion-strategy",
+      title: "Conversion Focused Strategy",
+      subtitle: "Persuasion-Led Catalog Engineering",
+      description: "We don't just make pretty pictures. Every pixel, title keyword, comparison grid, and EBC layout is calculated to convert passing traffic into high-value sales.",
+      metric: "2.5x",
+      metricLabel: "Average Listing CTR Lift",
+      icon: Target,
+      colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#8338EC]",
+      accent: "#8338EC"
+    },
+    {
+      id: "ai-workflow",
+      title: "AI Powered Workflow",
+      subtitle: "Next-Gen Generative Aesthetics",
+      description: "No expensive physical studios or rent delays. We utilize high-fidelity AI render chains to mock up your raw mobile phone snapshots into 4K elite lifestyle scenes.",
+      metric: "10x",
+      metricLabel: "Reduction in Studio Fees",
+      icon: Cpu,
+      colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#FF6B6B]",
+      accent: "#FF6B6B"
+    },
+    {
       id: "fast-delivery",
-      title: "24h SLA Express",
-      subtitle: "Insanely Fast SLA Turnaround",
-      description: "Quick turnaround times keep your inventory moving. Launch new collections, upload variations, or deploy campaigns with rapid drafts in hours, not weeks.",
+      title: "Fast Delivery",
+      subtitle: "Insanely Quick SLA Turns",
+      description: "Quick turns keep your storefront inventory flowing. We dispatch listing reviews, optimization audits, and visual background drafts within 24 hours.",
       metric: "24h",
-      metricLabel: "Average Draft Time",
+      metricLabel: "Typical SLA Turnaround",
       icon: Clock,
       colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#FFD93D]",
       accent: "#FFD93D"
     },
     {
-      id: "communication",
-      title: "Direct Client Syncs",
-      subtitle: "No Middlemen, No Fluff",
-      description: "No agencies, no outsourced bottlenecks. Direct correspondence on WhatsApp or Email with daily review updates, detailed keyword list files, and structured progress logs.",
+      id: "marketplace-optimized",
+      title: "Marketplace Optimized Content",
+      subtitle: "100% Platform Compliant Feeds",
+      description: "Tailored to respect the strict white-balance and title keyword guidelines of Amazon Seller Central, Flipkart Seller Hub, Shopify, and Meesho panels.",
       metric: "100%",
+      metricLabel: "Upload Compliance Score",
+      icon: Zap,
+      colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#00C2FF]",
+      accent: "#00C2FF"
+    },
+    {
+      id: "beginner-support",
+      title: "Beginner Friendly Support",
+      subtitle: "Zero Jargon, Direct WhatsApp Syncs",
+      description: "Never feel lost in complex technical dashboards. You get friendly, direct-to-founder support on WhatsApp to help you set up restricted catalog access safely.",
+      metric: "1-on-1",
       metricLabel: "Owner Accountability",
       icon: MessageSquare,
       colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#6BCB77]",
       accent: "#6BCB77"
-    },
-    {
-      id: "ecommerce-focused",
-      title: "Conversion Locked",
-      subtitle: "Algorithmic Precision Feeds",
-      description: "Outputs tailored around the Amazon A9 engine, search volumes, and Meesho listing categories. Your products rank organic and convert traffic naturally.",
-      metric: "2.5x",
-      metricLabel: "Average CTR Lift",
-      icon: Target,
-      colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#4D96FF]",
-      accent: "#4D96FF"
-    },
-    {
-      id: "ai-content",
-      title: "AI Studio Suite",
-      subtitle: "No Expensive Shoot Costs",
-      description: "Eliminate expensive physical studios. Leverage generative lighting systems and text overlays to map flat mobile images into ultra-luxury lifestyle mockups.",
-      metric: "10s",
-      metricLabel: "Saved Creative Spend",
-      icon: Cpu,
-      colorClass: "bg-white border-2 border-black shadow-[6px_6px_0px_0px_#FF8FAB]",
-      accent: "#FF8FAB"
     }
   ];
 
@@ -100,7 +111,7 @@ export default function WhyChooseMe() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 key={pillar.id}
-                className={`group ${pillar.colorClass} rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300 text-left`}
+                className={`group ${pillar.colorClass} rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300 text-left ${index === 4 ? "md:col-span-2" : ""}`}
               >
                 <div>
                   {/* Top line mapping icons & metrics */}

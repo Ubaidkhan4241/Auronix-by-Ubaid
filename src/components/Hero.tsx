@@ -38,15 +38,15 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFB703] border-3 border-black text-slate-900 text-xs font-bold uppercase tracking-widest mb-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFD93D] border-3 border-black text-slate-900 text-xs font-bold uppercase tracking-widest mb-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all cursor-pointer"
           id="hero-badge"
-          onClick={() => handleScrollTo("#process")}
+          onClick={() => handleScrollTo("#contact")}
         >
           <Sparkles className="w-4 h-4 text-slate-900 animate-spin-slow shrink-0" />
           <EditableElement
             as="span"
             storageKey="hero-badge-text"
-            defaultText="YOUR PRODUCTS DESERVE BETTER"
+            defaultText="E-COMMERCE GROWTH STUDIO"
           />
         </motion.div>
 
@@ -66,7 +66,7 @@ export default function Hero() {
               storageKey="hero-part1-text"
               defaultText="Your Products"
             />
-            <span className="text-white px-4 py-2 my-2 inline-block bg-gradient-to-r from-[#8338EC] via-[#FF6B6B] to-[#FFD93D] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] uppercase -rotate-1 hover:rotate-1 transition-transform">
+            <span className="text-white px-6 py-2.5 my-2.5 inline-block bg-gradient-to-r from-[#8338EC] via-[#FF6B6B] to-[#FFD93D] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] uppercase -rotate-1 hover:rotate-1 transition-transform">
               <EditableElement
                 as="span"
                 storageKey="hero-part2-text"
@@ -77,7 +77,7 @@ export default function Hero() {
               as="span"
               className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] via-[#8338EC] to-[#00C2FF] animate-pulse inline-block leading-tight"
               storageKey="hero-part3-text"
-              defaultText="Better."
+              defaultText="Better Sales."
             />
           </h1>
         </motion.div>
@@ -87,12 +87,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 font-sans text-base sm:text-xl text-slate-700 max-w-2xl font-semibold leading-relaxed"
+          className="mt-8 font-sans text-base sm:text-xl text-slate-700 max-w-3xl font-semibold leading-relaxed"
         >
           <EditableElement
             as="span"
             storageKey="hero-subtitle-text"
-            defaultText="We construct thumb-stopping graphics & smart AI-powered transformations that double conversions. No boring SaaS templates, only raw creative energy."
+            defaultText="We help e-commerce brands turn product listings into high-converting sales assets using AI visuals, optimized listings, and catalog management."
           />
         </motion.p>
 
@@ -101,34 +101,46 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto"
+          className="mt-12 flex flex-col items-center justify-center gap-4 w-full sm:w-auto"
           id="hero-ctas"
         >
-          <button
-            onClick={() => handleScrollTo("#portfolio")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-white text-slate-900 border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all cursor-pointer"
-            id="hero-samples-btn"
-          >
-            <Eye className="w-4 h-4 text-[#8338EC]" />
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
+            <button
+              onClick={() => handleScrollTo("#contact")}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-5 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#FF6B6B] text-white border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:bg-[#FF6B6B]/95 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all cursor-pointer"
+              id="hero-contact-btn"
+            >
+              <EditableElement
+                as="span"
+                storageKey="hero-btn2-text"
+                defaultText="Get Free Sample"
+              />
+              <ArrowRight className="w-4 h-4 text-white" />
+            </button>
+
+            <button
+              onClick={() => handleScrollTo("#portfolio")}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-5 rounded-2xl text-xs font-black uppercase tracking-wider bg-white text-slate-900 border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all cursor-pointer"
+              id="hero-samples-btn"
+            >
+              <Eye className="w-4 h-4 text-[#8338EC]" />
+              <EditableElement
+                as="span"
+                storageKey="hero-btn1-text"
+                defaultText="View Transformations"
+              />
+            </button>
+          </div>
+
+          {/* Micro text requested below CTA */}
+          <p className="mt-3 text-xs sm:text-sm text-slate-650 font-mono font-black uppercase tracking-widest flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#06D6A0] animate-ping" />
             <EditableElement
               as="span"
-              storageKey="hero-btn1-text"
-              defaultText="View Portfolio Grid"
+              storageKey="hero-micro-text"
+              defaultText="Send us 1 product image — we’ll show improvement ideas for free."
             />
-          </button>
-          
-          <button
-            onClick={() => handleScrollTo("#contact")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#FF6B6B] text-white border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:bg-[#FF6B6B]/95 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all cursor-pointer"
-            id="hero-contact-btn"
-          >
-            <EditableElement
-              as="span"
-              storageKey="hero-btn2-text"
-              defaultText="Let's Collaborate"
-            />
-            <ArrowRight className="w-4 h-4 text-white" />
-          </button>
+          </p>
         </motion.div>
 
         {/* Trust elements with vibrant pill badges */}
@@ -212,13 +224,15 @@ export default function Hero() {
       {/* Marquee Row Section as requested for campaign feel */}
       <div className="w-full overflow-hidden bg-black py-4 mt-20 relative z-20 -rotate-1 border-y-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] flex items-center">
         <div className="animate-marquee whitespace-nowrap flex items-center gap-12 text-white font-display font-black text-xs sm:text-sm uppercase tracking-widest">
-          {Array(10).fill([
-            "✨ NO BORING CODE",
+          {Array(12).fill([
+            "🛍️ AMAZON",
+            "⚡ FLIPKART",
+            "📦 MEESHO",
+            "💼 IndiaMART",
+            "🌐 Alibaba",
+            "🎨 Etsy",
             "🚀 DOUBLE YOUR CONVERSIONS",
-            "⚡ NEXT-GEN DESIGN CO",
-            "🎨 SPOTIFY WRAPPED VIBES",
-            "💖 100% AMZ COMPLIANT",
-            "🔥 CREATIVE DESTRUCTION",
+            "💖 100% PLATFORM COMPLIANT",
           ]).flat().map((text, idx) => (
             <span key={idx} className="flex items-center gap-4">
               <span>{text}</span>

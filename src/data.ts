@@ -3,44 +3,44 @@ import customItems from "./data-custom.json";
 
 export const SERVICES_DATA: Service[] = [
   {
-    id: "catalog-management",
-    title: "Catalog Management",
-    description: "A-to-Z digital catalog oversight. Ongoing price updates, listing health monitoring, suppressed page fixes, and merchant dashboard management.",
-    category: "catalog",
-    iconName: "Database",
-    deliverables: ["Listing Health Audits", "Stranded Inventory Fixes", "Pricing Competitiveness", "Brand-Registry Synchronization"]
+    id: "increase-conversion",
+    title: "Increase Product Conversion Rate",
+    description: "Convert browsing visitors into active buyers. We design elite A+ Content (EBC), persuasive comparative charts, and thumb-stopping visual flows optimized to double your listing's purchase intent.",
+    category: "ai-content",
+    iconName: "Zap",
+    deliverables: ["A+ Content & EBC Redesigns", "High-Converting Feature Callouts", "Comparative Grid Overlays", "Benefit-Driven Infographics"]
   },
   {
-    id: "bulk-uploads",
-    title: "Bulk Product Uploads",
-    description: "Flawless large-scale inventory uploads using platform-specific flat files (Excel/CSV). Zero template errors, rapid ingestion.",
-    category: "catalog",
-    iconName: "Grid",
-    deliverables: ["Custom Feed Template Building", "Flat File Error Diagnostics", "Dynamic Cell Calculations", "Category Node Selection"]
+    id: "improve-ctr",
+    title: "Improve CTR on Marketplaces",
+    description: "Shatter your CTR benchmarks. Stand out on crowded search result feeds (Amazon, Flipkart, Meesho) with high-impact, pixel-perfect click-magnet hero images that compel buyers to stop scrolling and click your listing.",
+    category: "ai-content",
+    iconName: "Sparkles",
+    deliverables: ["Click-Magnet Hero Designs", "Vibrant Visual Prominence Checks", "Platform-Compliant Backgrounds", "Competitor Visual Delta Analysis"]
   },
   {
-    id: "product-variations",
-    title: "Product Variations",
-    description: "Complex parent-child multi-variate listings (Size, Color, Pack size). Aggregates star reviews onto a single high-trust sales node.",
+    id: "boost-seo",
+    title: "Boost SEO Ranking",
+    description: "Rank higher, sell more. We inject high-intent marketplace search keywords seamlessly into optimized titles, structured backend search terms, and key benefit bullet points to maximize your search visibility.",
     category: "catalog",
-    iconName: "Layers",
-    deliverables: ["Parent-Child Relationship Mapping", "Variation Theme Setup", "Consistent Swatch Asset Linking", "Variation Specific Barcodes"]
+    iconName: "Globe",
+    deliverables: ["Marketplace Keyword Audits", "Optimized Search Term Tuning", "Natural Search-Dense Listing Copy", "Category Node Fine-Tuning"]
   },
   {
-    id: "ai-product-images",
-    title: "AI Product Images",
-    description: "Convert basic studio photos into premium lifestyle images using cutting-edge AI. Place products in luxury rooms, outdoor nature, or professional studios.",
+    id: "build-trust",
+    title: "Build Trust Through Visuals",
+    description: "Ditch raw, boring smartphone snapshots. We build hyper-realistic, premium AI lifestyle product environments—placing your products in luxury studio settings, real-world rooms, or gorgeous outdoor scenery.",
     category: "ai-content",
     iconName: "Image",
-    deliverables: ["High-Res AI Studio Shadows", "Dynamic Scene Generation", "Consistent Product Form Mapping", "Social Media Graphics Ready"]
+    deliverables: ["3D Shadow & Lighting Realism", "Hyper-Realistic AI Lifestyles", "Aesthetic Props & Scenery Matching", "Professional Studio-Grade Mockups"]
   },
   {
-    id: "ecommerce-web-creation",
-    title: "E-commerce Website Creation",
-    description: "Fully responsive, optimized Shopify or single-page storefronts built using light, fast code. Focused entirely on clean designs and fast load speeds.",
-    category: "web-creation",
-    iconName: "Globe",
-    deliverables: ["Shopify Store Design", "Responsive Layout Architecture", "Conversion rate optimized checkout", "Custom App integrations"]
+    id: "improve-catalog-structure",
+    title: "Improve Catalog Structure",
+    description: "Organize messy, complex catalogs. We set up parent-child multivariate variation grids (size, color, pack sizes) to aggregate ratings into high-trust listings and debug broken flat-file Excel feed sheets.",
+    category: "catalog",
+    iconName: "Layers",
+    deliverables: ["Multi-Variant Parent-Child Setup", "Flat-File CSV Error Debugging", "Listing Suppression Diagnostics", "Seamless SKU Catalog Mapping"]
   }
 ];
 
@@ -49,46 +49,35 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = customItems;
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: 1,
-    title: "Share Requirement",
-    description: "Send over your existing raw product imagery, catalog Excel files, store links, or simple text details of the products you want listed or optimized.",
-    duration: "Day 1",
+    title: "Send Product Image",
+    description: "Send us just one raw product image via WhatsApp or through our simple brief builder. Tell us which marketplace or platform you target.",
+    duration: "Step 01",
     detailedPoints: [
-      "Review competitor listings in your niche",
-      "Upload raw product smartphone photos",
-      "Provide brand style briefs and targeting goals"
+      "Share raw, unedited smartphone photos of your products",
+      "Specify your target e-commerce platform (Amazon, Shopify, Meesho)",
+      "Zero registration or upfront payment required"
     ]
   },
   {
     stepNumber: 2,
-    title: "Review & Planning",
-    description: "I analyze search volume keywords, design layout themes, and draft a plan mapping target categories and required AI background scenes.",
-    duration: "Day 1-2",
+    title: "We Redesign + Optimize Listing",
+    description: "We isolate your product, generate high-end, high-converting AI visual backgrounds, and craft keyword-rich, persuasive copy.",
+    duration: "Step 02",
     detailedPoints: [
-      "Map high-volume Amazon/Flipkart keyword sets",
-      "Pitch visual directions for AI-generated scenery",
-      "Confirm deliverables list and timeline budget"
+      "Isolate raw products into custom 4K professional studio backgrounds",
+      "Design benefit-driven product listing infographic feature calls",
+      "Inject high-volume backend marketplace search terms for organic ranking"
     ]
   },
   {
     stepNumber: 3,
-    title: "Execution & AI Design",
-    description: "Writing listings, building parent-child variations in master flat files, rendering luxury studio AI backgrounds, and styling your store.",
-    duration: "Day 2-4",
+    title: "You Get Ready-to-Use Content",
+    description: "Receive ready-to-upload high-converting visual assets, compliant listings, and copy ready to skyrocket your conversion rate immediately.",
+    duration: "Step 03",
     detailedPoints: [
-      "No-flicker video panning rendering",
-      "Draft list-titles and optimized description copies",
-      "Generate clean, pixel-perfect 4K product mockups"
-    ]
-  },
-  {
-    stepNumber: 4,
-    title: "Delivery & Upload Check",
-    description: "Checking feeds, uploading to seller profiles or sending final structured files ready for bulk CSV imports. Smooth listing live-checks.",
-    duration: "Day 5",
-    detailedPoints: [
-      "Upload flat spreadsheet feeds with zero template errors",
-      "Monitor for dashboard quality approvals",
-      "Deliver beautifully organized Google Drive catalog folders"
+      "High-res product images ready to drag and drop onto your store listings",
+      "Persuasive copywriting deliverables mapped for optimal CTR",
+      "Aggressive conversion growth and instant marketplace visual dominance"
     ]
   }
 ];
